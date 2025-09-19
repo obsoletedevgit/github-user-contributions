@@ -41,8 +41,6 @@ function extractUsername(input) {
             url.hostname = "github.com";
         }
 
-        if ()
-
         // Extract first path part
         const pathParts = url.pathname.split("/").filter(Boolean);
         if (pathParts.length > 0) return pathParts[0];
