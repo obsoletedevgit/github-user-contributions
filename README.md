@@ -37,12 +37,17 @@ cd github-user-contributions
 npm install
 ```
 
-3. Start the server:
+3. Create .env and insert this variable:
+```bash
+GITHUB_TOKEN=your_personal_access_token_here
+```
+
+4. Start the server:
 ```bash
 npm run start
 ```
 
-4. Open your browser and go to:
+5. Open your browser and go to:
 ```http
 http://localhost:3000
 ```
@@ -89,6 +94,7 @@ github-user-contributions/
 ├─ README.md
 ├─ LICENSE
 ├─ .gitignore
+├─ .env                 # Create this yourself!
 └─ package-lock.json
 ```
 
