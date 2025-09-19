@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>GitHub Contributions Checker</title>
+        <link rel="stylesheet" href="style.css" />
+
+        <link rel="shortcut icon" href="icons/github.svg" type="image/x-icon">
+    </head>
+    <body>
+        <!-- Header / Navbar -->
+        <header id="navbar">
+            <h1>GitHub Contributions Viewer</h1>
+            <div id="sort-container">
+                <label for="sort-select">Sort by:</label>
+                <select id="sort-select">
+                    <option value="stars-desc">Stars ↓</option>
+                    <option value="stars-asc">Stars ↑</option>
+                    <option value="name-asc">Name A-Z</option>
+                    <option value="name-desc">Name Z-A</option>
+                </select>
+            </div>
+        </header>
+
+        <!-- Search bar -->
+        <div id="search-container">
+            <input
+                type="text"
+                id="username"
+                placeholder="Enter username (obsoletedevgit)"
+            />
+            <button id="search">Search</button>
+        </div>
+
+        <div id="history-container">
+            <h3>Recent Searches:</h3>
+            <div id="history-buttons"></div>
+        </div>
+
+        <div id="spinner" class="hidden"></div>
+        <ul id="repos"></ul>
+
+        <p class="credits">Made with ❤️ by <a href="https://obsoletedev.com" class="credits">ObsoleteDev</a> open source on <a href="https://github.com/obsoletedevgit/github-user-contributions" class="credits">GitHub</a></p>
+
+        <script src="script.js"></script>
+    </body>
+</html>

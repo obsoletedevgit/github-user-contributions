@@ -1,0 +1,254 @@
+/* ===== Base Layout ===== */
+body {
+    font-family: "Inter", "Segoe UI", Tahoma, sans-serif;
+    background: #1b1e28;
+    color: #d5d8da;
+    margin: 0;
+    padding: 2rem;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #5de4c7; /* cyan accent */
+    font-weight: 600;
+}
+
+/* ===== Navbar ===== */
+#navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #232936;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid #2e3445;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+}
+
+#navbar h1 {
+    margin: 0;
+    color: #5de4c7;
+    font-size: 1.8rem;
+}
+
+#sort-container label {
+    margin-right: 0.5rem;
+    color: #d5d8da;
+}
+
+#sort-select {
+    padding: 0.3rem 0.5rem;
+    border-radius: 4px;
+    border: none;
+    font-size: 0.9rem;
+    background: #232936;
+    color: #d5d8da;
+}
+
+/* ===== Search Bar ===== */
+#search-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+#username {
+    padding: 0.7rem;
+    width: 280px;
+    border: 1px solid #2e3445;
+    border-radius: 6px 0 0 6px;
+    font-size: 1rem;
+    background: #232936;
+    color: #d5d8da;
+}
+
+#username:focus {
+    outline: none;
+    border-color: #5de4c7;
+}
+
+button {
+    padding: 0.7rem 1.2rem;
+    border: none;
+    border-radius: 0 6px 6px 0;
+    background: #5de4c7;
+    color: #1b1e28;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease;
+}
+
+button:hover {
+    background: #89ddff;
+    transform: translateY(-2px);
+}
+
+#history-container {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+#history-buttons button {
+    background: #5de4c7;
+    color: #1b1e28;
+    border: none;
+    border-radius: 6px;
+    padding: 0.4rem 0.8rem;
+    margin: 0.2rem;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease;
+    font-size: 0.85rem;
+}
+
+#history-buttons button:hover {
+    background: #89ddff;
+    transform: translateY(-2px);
+}
+
+/* ===== Spinner ===== */
+#spinner {
+    border: 6px solid #2e3445;
+    border-top: 6px solid #c099ff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 1rem auto;
+}
+
+.hidden {
+    display: none;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* ===== Repo Cards ===== */
+#repos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 0;
+    list-style: none;
+}
+
+/* Repo cards */
+@keyframes slide-fade-in {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.repo-card {
+    background: #232936;
+    border: 1px solid #2e3445;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    animation: slide-fade-in 0.5s ease forwards;
+    opacity: 0;
+}
+
+.repo-card:hover {
+    transform: translateY(-5px);
+    border-color: #5de4c7;
+}
+
+.repo-card a {
+    text-decoration: none;
+    color: #89ddff;
+    font-size: 1.1rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.repo-card a .github-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 6px;
+    fill: #c099ff;
+}
+
+.repo-card p {
+    margin: 0.3rem 0;
+    color: #7a818e;
+}
+
+.repo-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+    align-items: center;
+}
+
+.repo-meta span {
+    display: flex;
+    align-items: center;
+    color: #c099ff;
+}
+
+.repo-meta span .star-icon {
+    width: 14px;
+    height: 14px;
+    margin-right: 4px;
+    fill: #f0c674;
+}
+
+/* Language dot */
+.lang-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 4px;
+}
+
+/* Empty / error card */
+.repo-card.empty {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #f087bd;
+    font-weight: bold;
+}
+
+/* GitHub icon in repo card link */
+.repo-card a svg {
+    width: 16px;
+    height: 16px;
+    margin-right: 6px;
+    vertical-align: middle;
+}
+
+/* Star icon in repo-meta */
+.repo-meta span svg {
+    width: 14px;
+    height: 14px;
+    margin-right: 4px;
+    vertical-align: middle;
+}
+
+.credits {
+    margin-top: 3rem;
+    font-size: 0.9rem;
+    color: #7a818e;
+}
