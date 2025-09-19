@@ -87,9 +87,9 @@ function renderHistory() {
 }
 
 async function fetchRepos(username) {
-    if (!username) return;
+    if (!username || username.trim() === "") return; // <-- add this
+    username = username.trim();
 
-    // Add to localStorage-backed history
     addToHistory(username);
 
     repoList.innerHTML = "";
@@ -97,19 +97,10 @@ async function fetchRepos(username) {
 
     try {
         const res = await fetch(`/repos/${username}`);
+        // Only parse if response is OK
+        if (!res.ok) throw new Error("GitHub API error");
         const data = await res.json();
-
         currentRepos = data.repos || [];
-
-        if (currentRepos.length === 0) {
-            const li = document.createElement("li");
-            li.classList.add("repo-card", "empty");
-            li.textContent = "No contributions found!";
-            repoList.appendChild(li);
-            spinner.classList.add("hidden");
-            return;
-        }
-
         renderRepos(currentRepos);
     } catch (err) {
         const li = document.createElement("li");

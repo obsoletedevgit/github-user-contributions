@@ -38,6 +38,7 @@ npm install
 ```
 
 3. Create .env and insert this variable:
+You can get a personal access token [here](https://github.com/settings/tokens). It needs the public_repo permission.
 ```bash
 GITHUB_TOKEN=your_personal_access_token_here
 ```
