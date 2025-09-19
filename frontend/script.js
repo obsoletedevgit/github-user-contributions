@@ -178,11 +178,7 @@ preloadIcons();
 renderHistory();
 
 document.addEventListener("DOMContentLoaded", () => {
-    const currentURL = window.location.href;
-    const username = extractUsername(currentURL);
+    const username = extractUsername(window.location.href);
 
-    if (username) {
-        searchInput.value = username;
-        fetchRepos(username);
-    }
+    if (username) fetchRepos(username);
 });
