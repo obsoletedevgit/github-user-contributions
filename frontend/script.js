@@ -34,10 +34,14 @@ function extractUsername(input) {
     try {
         const url = new URL(input);
 
+        if (url == "https://ghc.obsoletedev.com/") return null;
+
         // Convert custom domain to github.com
         if (url.hostname === "ghc.obsoletedev.com") {
             url.hostname = "github.com";
         }
+
+        if ()
 
         // Extract first path part
         const pathParts = url.pathname.split("/").filter(Boolean);
@@ -87,7 +91,7 @@ function renderHistory() {
 }
 
 async function fetchRepos(username) {
-    if (!username || username.trim() === "") return; // <-- add this
+    if (!username || username.trim() === "") return;
     username = username.trim();
 
     addToHistory(username);
